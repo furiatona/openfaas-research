@@ -1,0 +1,95 @@
+# MkDocs Configuration
+
+site_name: OpenFaaS Platform Research
+site_description: Research and documentation for building modern serverless platforms with OpenFaaS Pro
+site_author: OpenFaaS Research Team
+site_url: https://furiatona.github.io/openfaas-research/
+
+repo_name: furiatona/openfaas-research
+repo_url: https://github.com/furiatona/openfaas-research
+edit_uri: edit/main/
+
+# Set docs directory to docs subdirectory
+docs_dir: docs
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+      fallback_to_build_date: true
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - toc:
+      anchorlink: true
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/furiatona/openfaas-research
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/openfaas
+
+nav:
+  - Home: index.md
+  - Architecture:
+    - Overview: 01-architecture.md
+    - Scaling Strategy: 03-scaling.md
+  - Analysis:
+    - Edition Comparison: 04-comparison.md
+    - Alternatives: 05-alternatives.md
+  - Setup:
+    - Implementation Roadmap: 02-setup-roadmap.md

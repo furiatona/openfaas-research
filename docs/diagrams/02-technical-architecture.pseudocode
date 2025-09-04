@@ -1,0 +1,186 @@
+title Modern Serverless Platform on Bare-Metal with OpenFaaS Pro, k3s, and Supabase
+
+// PHYSICAL INFRASTRUCTURE LAYER
+DEDICATED BARE-METAL SERVERS [label: "Dedicated Bare-Metal Servers", icon: server, color: black] {
+  // Dedicated Load Balancer Node
+  Load Balancer Node [icon: aws-elb, color: blue, label: "Load Balancer (SSL Termination, HA)"]
+
+  // k3s Master Node (OpenFaaS Gateway)
+
+  // Worker Nodes Group
+
+  // GPU Nodes Group
+
+  // Storage Cluster Group
+  Storage Cluster [icon: hard-drive, color: purple, label: "Storage Server Cluster"] {
+    "High-Perf Storage" [icon: database, label: "NVMe SSD Array"]
+    Backup Storage [icon: archive, label: "Backup Storage (RAID)"]
+    Storage Utilization [icon: bar-chart, label: "Storage Usage"]
+    Storage Scaling [icon: plus-square, label: "Storage Scaling"]
+  }
+
+  // Security & Monitoring Servers
+  Security & Monitoring [icon: shield, color: red, label: "Security & Monitoring"] {
+    Security Server [icon: lock, label: "Secrets Management"]
+    RBAC Server [icon: users, label: "RBAC (OpenFaaS/k3s)"]
+    Auth Server [icon: user-check, label: "Supabase Auth"]
+    Audit Logging [icon: file-text, label: "Audit Logging"]
+    Monitoring [icon: activity, label: "Monitoring"]
+  }
+
+  // Event System Node
+
+  // Physical Network Infrastructure
+  Physical Network [icon: globe, color: gray, label: "Physical Network (Firewalls, IDS)"]
+  Bare-Metal Server 1 [icon: server, color: black, label: "Bare-Metal Server 1"] {
+    BM1 Load Balancer Node [icon:aws-elb, color:blue, label:"Load Balancer (SSL Termination, HA)"]
+    BM1 Master Node [icon:k8s-control-plane, color:blue, label:"k3s Master Node"]
+    BM1 Worker Nodes [icon:k8s-node, color:green, label:"k3s Worker Nodes"]
+  }
+  Bare-Metal Server 2 [icon: server, color: black, label: "Bare-Metal Server 2"] {
+    BM2 Load Balancer Node [icon:aws-elb, color:blue, label:"Load Balancer (SSL Termination, HA)"]
+    BM2 Master Node [icon:k8s-control-plane, color:blue, label:"k3s Master Node"]
+    BM2 Worker Nodes [icon:k8s-node, color:green, label:"k3s Worker Nodes"]
+  }
+  Bare-Metal Server 3 [icon: server, color: black, label: "Bare-Metal Server 3"] {
+    BM3 Load Balancer Node [icon:aws-elb, color:blue, label:"Load Balancer (SSL Termination, HA)"]
+    BM3 Master Node [icon:k8s-control-plane, color:blue, label:"k3s Master Node"]
+    BM3 Worker Nodes [icon:k8s-node, color:green, label:"k3s Worker Nodes"]
+  }
+}
+
+// SUPABASE CLOUD SERVICES
+Supabase Cloud [icon: supabase, color: green] {
+  Supabase Database [icon: database, label: "Database (PostgreSQL)"]
+  Supabase Storage [icon: cloud, label: "Storage (S3)"]
+  Supabase Auth [icon: user-check, label: "Auth"]
+  Supabase RLS [icon: lock, label: "Row Level Security"]
+}
+
+// EXTERNAL SERVICES
+External Services [icon: send, color: orange] {
+  Email Service [icon: mail, label: "Email"]
+  SMS Service [icon: message-circle, label: "SMS"]
+}
+
+// CLIENTS
+Clients [icon: users, color: black] {
+  Web Client [icon: monitor]
+  Mobile Client [icon: smartphone]
+}
+AI Stack [icon: cpu-gpu, color: orange, label: "AI Stack"] {
+  GPU Nodes [icon: cpu-gpu, color: orange, label: "Dedicated GPU Nodes"] {
+    AI Functions [icon: brain, label: "AI Functions (GPU-Enabled)"]
+    ML Models [icon: activity, label: "ML Models (Scale-to-Zero)"]
+    GPU Utilization [icon: bar-chart-2, label: "GPU Usage"]
+    GPU Horizontal Scaling [icon: plus-square, label: "Horizontal Scaling"]
+    GPU Vertical Scaling [icon: arrow-up, label: "Vertical Scaling"]
+    "GPU Scale-to-Zero" [icon: power, label: "Scale-to-Zero"]
+  }
+}
+OpenFaaS Stack [icon: server, color: blue, label: "OpenFaaS Baremetal"] {
+  Master Node [icon: k8s-control-plane, color: blue, label: "k3s Master Node"]
+  Worker Nodes [icon: k8s-node, color: green, label: "k3s Worker Nodes"] {
+    // OpenFaaS Functions (CPU/RAM optimized)
+    API Functions [icon: code, label: "API Functions"]
+    Event Functions [icon: repeat, label: "Event Functions"]
+    Background Functions [icon: clock, label: "Background Functions"]
+    Supabase Client [icon: supabase, label: "Supabase Client"]
+    // Hardware Utilization Indicators
+    Worker CPU [icon: cpu, label: "CPU"]
+    Worker RAM [icon: database, label: "RAM"]
+    // Scaling Indicators
+    Worker Horizontal Scaling [icon: plus-square, label: "Horizontal Scaling"]
+    Worker Vertical Scaling [icon: arrow-up, label: "Vertical Scaling"]
+  }
+  Event System Node [icon: bell, color: yellow, label: "Event System (Triggers)"]
+}
+
+// CONNECTIONS
+
+// Client request flow
+Web Client > Load Balancer Node
+Mobile Client > Load Balancer Node
+
+// Load Balancer to OpenFaaS Gateway (Master Node)
+Load Balancer Node > Master Node: SSL Termination, Traffic Distribution
+
+// Master Node to Worker Nodes (Function Routing)
+Master Node > API Functions: Route API Requests
+Master Node > Event Functions: Route Event Requests
+Master Node > Background Functions: Route Background Jobs
+
+// Worker Functions to Supabase Client
+API Functions > Supabase Client
+Event Functions > Supabase Client
+Background Functions > Supabase Client
+
+// Supabase Client to Supabase Cloud
+Supabase Client > Supabase Database
+Supabase Client > Supabase Storage
+Supabase Client > Supabase Auth
+
+// AI/ML Function Flow
+Master Node > AI Functions: Route AI Requests
+AI Functions > ML Models: Model Execution
+AI Functions > Supabase Client: Store/Fetch Data
+
+// GPU Functions to Supabase Cloud
+AI Functions > Supabase Database
+AI Functions > Supabase Storage
+
+// Event-driven flow
+Event System Node > Event Functions: Trigger Event Processing
+Event Functions > Supabase Database: Data Update
+Event Functions > External Services: Notify (Email/SMS)
+
+// Background Functions to External Services
+Background Functions > External Services: Send Reports/Notifications
+
+// Storage Cluster connections
+Worker Nodes > "High-Perf Storage": Data Read/Write
+GPU Nodes > "High-Perf Storage": Data Read/Write
+
+// Security & Monitoring connections
+Security Server --> Master Node: Secrets Distribution
+Security Server --> Worker Nodes: Secrets Distribution
+Security Server --> GPU Nodes: Secrets Distribution
+RBAC Server --> Master Node: Access Control
+RBAC Server --> Worker Nodes: Access Control
+RBAC Server --> GPU Nodes: Access Control
+Auth Server --> Supabase Auth: User Auth
+Audit Logging <-- Master Node: Log Events
+Audit Logging <-- Worker Nodes: Log Events
+Audit Logging <-- GPU Nodes: Log Events
+Monitoring <-- Master Node: Metrics
+Monitoring <-- Worker Nodes: Metrics
+Monitoring <-- GPU Nodes: Metrics
+
+// Physical Network connections
+Physical Network > Load Balancer Node
+Physical Network > Master Node
+Physical Network > Worker Nodes
+Physical Network > GPU Nodes
+Physical Network > Storage Cluster
+Physical Network > Security & Monitoring
+Physical Network > Event System Node
+
+// Scaling indicators (dashed lines for ongoing capability)
+
+// High availability/failover
+Load Balancer Node -- Load Balancer Node: Redundant Nodes (HA)
+Master Node -- Master Node: Redundant Control Plane (HA)
+Storage Cluster -- Storage Cluster: Redundant Storage Nodes (HA)
+}
+BM1 Load Balancer Node -- BM2 Load Balancer Node: Redundant Load Balancers (HA)
+BM2 Load Balancer Node -- BM3 Load Balancer Node: Redundant Load Balancers (HA)
+BM1 Master Node -- BM2 Master Node: Redundant Control Plane (HA)
+BM2 Master Node -- BM3 Master Node: Redundant Control Plane (HA)
+BM1 Worker Nodes -- BM2 Worker Nodes: Worker Node Pool
+BM2 Worker Nodes -- BM3 Worker Nodes: Worker Node Pool
+BM1 Load Balancer Node > BM1 Master Node: Traffic Distribution
+BM2 Load Balancer Node > BM2 Master Node: Traffic Distribution
+BM3 Load Balancer Node > BM3 Master Node: Traffic Distribution
+BM1 Master Node > BM1 Worker Nodes: Function Routing
+BM2 Master Node > BM2 Worker Nodes: Function Routing
+BM3 Master Node > BM3 Worker Nodes: Function Routing

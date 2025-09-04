@@ -1,0 +1,46 @@
+title Codex-like Event Ticketing Platform - High-Level Architecture
+
+// User entry point
+Users [icon: users]
+
+// User interface
+User Interface [icon: monitor] {
+  Web App [icon: monitor]
+  Mobile App [icon: mobile]
+}
+
+// Core platform running on infrastructure
+
+// Key dependencies
+Supabase [icon: supabase, label: "Database & Auth"]
+External Email Service [icon: mail, label: "Email Provider"]
+
+// Monitoring and alerts
+Monitoring & Alerts [icon: activity] {
+  Grafana [icon: grafana]
+  Logflare [icon: log]
+  PagerDuty [icon: pagerduty]
+}
+AI Stack Dependency [label: "AI Stack", icon: brain]
+K3s Cluster [icon: k8s-cluster, label: "K3s Baremetal"] {
+  OpenFaaS Pro [label: "OpenFaaS Pro", icon: openfaas] {
+  }
+  Bare-metal Server 1 [icon:server, label:"Bare-metal Server"]
+  Bare-metal Server 2 [icon:server, label:"Bare-metal Server"]
+  Bare-metal Server 3 [icon:server, label:"Bare-metal Server"]
+}
+
+// Workflow connections
+Users > User Interface: interact
+User Interface > OpenFaaS Pro: send requests
+OpenFaaS Pro <> Supabase: data & auth
+OpenFaaS Pro > External Email Service: send tickets/notifications
+OpenFaaS Pro > Monitoring & Alerts: metrics, logs, alerts
+Bare-metal Server 1 > OpenFaaS Pro
+Bare-metal Server 2 > OpenFaaS Pro
+Bare-metal Server 3 > OpenFaaS Pro
+User Interface > OpenFaaS Pro: send requests
+OpenFaaS Pro <> Supabase: data & auth
+OpenFaaS Pro > External Email Service: send tickets/notifications
+OpenFaaS Pro > Monitoring & Alerts: metrics, logs, alerts
+OpenFaaS Pro > AI Stack Dependency: trigger AI tasks
