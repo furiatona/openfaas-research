@@ -5,9 +5,9 @@ Welcome to the OpenFaaS Platform Research documentation. This repository contain
 ## Project Overview
 
 We're exploring **OpenFaaS Pro** as the foundation for a scalable serverless platform, combined with:
-- **k3s** - Lightweight Kubernetes for efficient resource usage
-- **Supabase** - Backend-as-a-Service for authentication, database, and storage
-- **AI Stack** - GPU-powered functions for intelligent features
+- **k3s**: Lightweight Kubernetes for efficient resource usage
+- **Supabase**: Backend-as-a-Service for authentication, database, and storage
+- **AI Stack**: GPU-powered functions for intelligent features
 
 ## Documentation Sections
 
@@ -25,10 +25,10 @@ We're exploring **OpenFaaS Pro** as the foundation for a scalable serverless pla
 
 ## Quick Start
 
-1. **Review the architecture** → [01-architecture.md](01-architecture.md)
-2. **Understand the differences** → [04-comparison.md](04-comparison.md)
-3. **Follow the setup roadmap** → [02-setup-roadmap.md](02-setup-roadmap.md)
-4. **Plan your scaling strategy** → [03-scaling.md](03-scaling.md)
+1. **[Review the architecture](01-architecture.md)**
+2. **[Understand the differences](04-comparison.md)**
+3. **[Follow the setup roadmap](02-setup-roadmap.md)**
+4. **[Plan your scaling strategy](03-scaling.md)**
 
 ## Key Insights
 
@@ -60,7 +60,3 @@ This is a research repository. Feel free to:
 - Improve installation instructions
 - Document lessons learned
 - Share performance benchmarks
-
-## Support
-
-For questions about this research or implementation guidance, please refer to the individual documentation files or create an issue in this repository.
