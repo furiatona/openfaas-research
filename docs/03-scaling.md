@@ -10,7 +10,7 @@ Scaling plan for OpenFaaS Pro on dedicated bare metal infrastructure using k3s.
 - [Infrastructure Requirements](#infrastructure-requirements)
 - [Cost Analysis](#cost-analysis)
 - [Implementation Steps](#implementation-steps)
-- [Monitoring & Optimization](#monitoring--optimization)
+- [Monitoring & Optimization](#monitoring-optimization)
 - [References](#references)
 
 ## Executive Summary

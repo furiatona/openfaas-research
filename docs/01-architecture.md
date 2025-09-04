@@ -5,7 +5,7 @@ System architecture for a modern serverless platform built on OpenFaaS Pro, k3s,
 ## Table of Contents
 
 - [Executive Summary](#executive-summary)
-- [System Overview](#system-overview)
+- [System Architecture](#system-architecture)
 - [Components](#components)
 - [Data Flow](#data-flow)
 - [Security Architecture](#security-architecture)

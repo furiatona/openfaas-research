@@ -4,6 +4,7 @@ site_name: OpenFaaS Platform Research
 site_description: Research and documentation for building modern serverless platforms with OpenFaaS Pro
 site_author: OpenFaaS Research Team
 site_url: https://furiatona.github.io/openfaas-research/
+site_dir: site
 
 repo_name: furiatona/openfaas-research
 repo_url: https://github.com/furiatona/openfaas-research
@@ -93,3 +94,4 @@ nav:
     - Alternatives: 05-alternatives.md
   - Setup:
     - Implementation Roadmap: 02-setup-roadmap.md
+    - Deployment Guide: DEPLOYMENT.md
