@@ -17,7 +17,7 @@ Welcome to the OpenFaaS Platform Research documentation. This repository contain
 
 ### Analysis
 - **[Edition Comparison](04-comparison.md)** - OpenFaaS Community vs Pro features
-- **[Alternatives](05-alternatives.md)** - OpenFaaS Pro vs Knative comparison
+- **[Alternatives](05-alternatives.md)** - OpenFaaS vs Knative vs LocalStack vs Firecracker 
 
 ### Setup
 - **[Setup Roadmap](02-setup-roadmap.md)** - Step-by-step setup roadmap
